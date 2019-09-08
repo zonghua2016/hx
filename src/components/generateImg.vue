@@ -7,7 +7,7 @@
              placeholder="请输入名字"
              @input="chgName"
              v-model="name">
-      <button @click="inputTxt">确定</button>
+      <button @click="inputTxt">生成图片</button>
     </div>
     <div class="signInDays">
       <!-- 1 3 7 11  16  20 -->
@@ -88,9 +88,7 @@ export default {
   methods: {
     // 更改name
     chgName() {
-      this.showOriginImg = true;
-      this.generateImgData = '';
-      this.genImgLoading = '';
+      this.clearFormData();
     },
     // 确定
     inputTxt() {
@@ -143,11 +141,19 @@ export default {
     },
     // 更改打卡天数
     chkSignInDays(days) {
+      if (this.signInDays !== days) {
+        this.clearFormData();
+        this.signInDays = days;
+        this.signInImgsUrl = this.signInImgs[this.signInDays];
+      }
+    },
+    clearFormData() {
+      this.firstName = '';
+      this.secdName = '';
+      this.thirdName = '';
       this.showOriginImg = true;
       this.generateImgData = '';
       this.genImgLoading = '';
-      this.signInDays = days;
-      this.signInImgsUrl = this.signInImgs[this.signInDays];
     }
   }
 }
@@ -187,7 +193,7 @@ img#downImg {
       height: 100%;
       text-indent: 1em;
       border-radius: 0.1rem;
-      font-size: .36rem;
+      font-size: 0.36rem;
     }
     button {
       width: auto;
