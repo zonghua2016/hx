@@ -6,14 +6,18 @@ import router from './router'
 import 'components/global.js'
 import 'components/Toast/index.css'
 import Toast from 'components/Toast'
+import VueCookie from 'vue-cookie'
 
 Vue.config.productionTip = false
 Vue.use(Toast)
+Vue.use(VueCookie)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
