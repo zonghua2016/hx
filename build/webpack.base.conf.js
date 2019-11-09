@@ -37,6 +37,9 @@ module.exports = {
   },
   module: {
     rules: [{
+        test: /\.md$/,
+        loader: 'raw-loader'
+      }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

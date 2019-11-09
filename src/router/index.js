@@ -17,6 +17,11 @@ const routes = [{
     name: 'select',
     path: '/select',
     component: () => import('components/test_vue_select2')
+  },
+  {
+    name: 'marked',
+    path: '/marked',
+    component: () => import('components/Marked')
   }
   // {
   //   name: '404',
